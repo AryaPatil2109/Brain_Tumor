@@ -14,6 +14,7 @@ export default function Footer() {
     >
       <div className="container-md">
         <div
+          className="footer-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr auto",
@@ -148,7 +149,14 @@ export default function Footer() {
         </div>
       </div>
 
-      <style>{`@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }`}</style>
+      <style>{`
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+        @media (max-width: 640px) {
+          .footer-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </footer>
   );
 }

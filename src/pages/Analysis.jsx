@@ -120,6 +120,7 @@ export default function Analysis() {
         style={{ padding: "2.5rem 1.5rem" }}
       >
         <div
+          className="analysis-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 340px",

@@ -268,14 +268,7 @@ export default function Hero() {
       }} />
 
       <div className="container-md" style={{ position: "relative", zIndex: 1, width: "100%" }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "4rem",
-            alignItems: "center",
-          }}
-        >
+        <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
           {/* ── LEFT: Text content ──────────────────────────── */}
           <div>
             {/* Top badge */}
@@ -377,7 +370,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              style={{ display: "flex", gap: "0.875rem", flexWrap: "wrap" }}
+              style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}
             >
               <StatRing value="93%" label="Accuracy"       pct={93}  delay={0.4} />
               <StatRing value="4"   label="Tumor Classes"  pct={100} delay={0.5} />
@@ -387,6 +380,7 @@ export default function Hero() {
 
           {/* ── RIGHT: Floating dashboard panel ─────────────── */}
           <motion.div
+            className="hero-panel"
             initial={{ opacity: 0, x: 40, y: 10 }}
             animate={{ opacity: 1, x: 0, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
@@ -504,7 +498,11 @@ export default function Hero() {
 
       <style>{`
         @media (max-width: 768px) {
-          .hero-grid { grid-template-columns: 1fr !important; }
+          .hero-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2.5rem !important;
+          }
+          .hero-panel { display: none !important; }
         }
       `}</style>
     </section>

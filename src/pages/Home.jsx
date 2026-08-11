@@ -68,7 +68,7 @@ function SectionHeading({ children, sub }) {
 
 export default function Home() {
   return (
-    <main style={{ background: "#061624" }}>
+    <main>
       <Hero />
 
       {/* Feature Cards */}

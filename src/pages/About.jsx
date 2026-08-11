@@ -102,7 +102,7 @@ function ArchitectureDiagram() {
 
   return (
     <div style={{ overflowX: "auto" }}>
-      <div style={{ minWidth: "440px" }}>
+      <div style={{ minWidth: "320px" }}>
         <div style={{ display: "flex", justifyContent: "center", marginBottom: "0.2rem" }}>
           {box("Brain MRI Image", "#c7dff7", "rgba(199,223,247,0.07)", "rgba(199,223,247,0.1)")}
         </div>
@@ -152,6 +152,9 @@ function SideCard({ title, children, mb = "1.25rem" }) {
       padding: "1.25rem 1.35rem",
       marginBottom: mb,
       backdropFilter: "blur(14px)",
+      width: "100%",
+      boxSizing: "border-box",
+      overflow: "hidden",
     }}>
       <h3 style={{
         fontWeight: 700,
@@ -176,6 +179,7 @@ export default function About() {
       background: "#061624",
       position: "relative",
       overflow: "hidden",
+      overflowX: "hidden",
     }}>
       {/* ── Neural background ──────────────────────────────── */}
       <div
@@ -250,16 +254,19 @@ export default function About() {
         </div>
 
         {/* ── Body grid ──────────────────────────────────── */}
-        <div className="container-md" style={{ padding: "2rem 1.5rem 4rem" }}>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 310px",
-            gap: "1.75rem",
-            alignItems: "start",
-          }}>
+        <div className="container-md about-body-pad" style={{ padding: "2rem 1.5rem 4rem" }}>
+          <div
+            className="about-grid"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 310px",
+              gap: "1.75rem",
+              alignItems: "start",
+            }}
+          >
 
             {/* ══ LEFT: Main content ═════════════════════════ */}
-            <div>
+            <div style={{ minWidth: 0 }}>
               <SectionCard title="Project Objective" delay={0}>
                 <p>
                   NeuroScan AI is an AI-assisted brain MRI classification system
@@ -341,7 +348,7 @@ export default function About() {
             </div>
 
             {/* ══ RIGHT: Sticky sidebar ══════════════════════ */}
-            <div style={{ position: "sticky", top: "100px" }}>
+            <div className="about-sidebar" style={{ position: "sticky", top: "100px", minWidth: 0, width: "100%" }}>
 
               {/* Technology Stack */}
               <SideCard title="Technology Stack">
@@ -407,14 +414,17 @@ export default function About() {
                         display: "flex",
                         justifyContent: "space-between",
                         alignItems: "center",
+                        flexWrap: "wrap",
+                        gap: "0.25rem",
                         padding: "0.625rem 0",
                         borderBottom: i < arr.length - 1 ? "1px solid rgba(0,212,255,0.08)" : "none",
+                        minWidth: 0,
                       }}
                     >
-                      <span style={{ fontSize: "0.8125rem", color: "rgba(160,200,240,0.6)", fontWeight: 500 }}>
+                      <span style={{ fontSize: "0.8125rem", color: "rgba(160,200,240,0.6)", fontWeight: 500, flexShrink: 0 }}>
                         {m.label}
                       </span>
-                      <span style={{ fontSize: "0.875rem", fontWeight: 800, color: m.valueColor }}>
+                      <span style={{ fontSize: "0.875rem", fontWeight: 800, color: m.valueColor, flexShrink: 0 }}>
                         {m.value}
                       </span>
                     </div>
@@ -459,11 +469,7 @@ export default function About() {
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 900px) {
-          .about-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
+
     </main>
   );
 }

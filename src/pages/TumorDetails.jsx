@@ -160,6 +160,7 @@ export default function TumorDetails() {
       {/* Main content */}
       <div className="container-md" style={{ padding: "2.5rem 1.5rem" }}>
         <div
+          className="tumor-detail-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "320px 1fr",
@@ -169,6 +170,7 @@ export default function TumorDetails() {
         >
           {/* Left column: MRI image + metadata */}
           <motion.div
+            className="tumor-sticky-col"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.45 }}
@@ -383,6 +385,8 @@ export default function TumorDetails() {
         @media (max-width: 768px) {
           .tumor-detail-grid {
             grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+            padding: 1.5rem 1rem !important;
           }
           .tumor-sticky-col {
             position: static !important;
