@@ -12,6 +12,8 @@ import TumorGuide from "./pages/TumorGuide";
 import TumorDetails from "./pages/TumorDetails";
 import History from "./pages/History";
 import About from "./pages/About";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 /* ── Global Brain Network Background Canvas ─────────────────────── */
 function BrainNetworkBackground() {
@@ -240,6 +242,22 @@ function AppRoutes() {
           element={
             <PageTransition>
               <About />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/signin"
+          element={
+            <PageTransition>
+              <SignIn />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <PageTransition>
+              <SignUp />
             </PageTransition>
           }
         />

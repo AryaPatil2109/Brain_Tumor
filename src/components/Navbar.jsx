@@ -157,6 +157,37 @@ export default function Navbar() {
           })}
         </nav>
 
+        {/* ── Sign In (desktop) ───────────────────────────── */}
+        <Link
+          to="/signin"
+          className="nav-desktop-signin"
+          style={{
+            background: "linear-gradient(135deg, #00d4ff, #0096c7)",
+            color: "#020b18",
+            padding: "0.45rem 1.25rem",
+            borderRadius: "999px",
+            fontSize: "0.875rem",
+            fontWeight: 700,
+            textDecoration: "none",
+            boxShadow: "0 0 14px rgba(0,212,255,0.3)",
+            transition: "transform 0.15s, box-shadow 0.2s",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.375rem",
+            zIndex: 1,
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.transform = "translateY(-1px)";
+            e.target.style.boxShadow = "0 0 20px rgba(0,212,255,0.55)";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.transform = "none";
+            e.target.style.boxShadow = "0 0 14px rgba(0,212,255,0.3)";
+          }}
+        >
+          Sign In
+        </Link>
+
         {/* ── Hamburger (mobile) ───────────────────────────── */}
         <button
           className="nav-hamburger"
@@ -230,6 +261,24 @@ export default function Navbar() {
                 </Link>
               );
             })}
+            {/* Mobile Sign In button */}
+            <Link
+              to="/signin"
+              style={{
+                marginTop: "0.5rem",
+                padding: "0.75rem 1rem",
+                borderRadius: "10px",
+                fontSize: "1.05rem",
+                fontWeight: 700,
+                color: "#020b18",
+                textDecoration: "none",
+                background: "linear-gradient(135deg, #00d4ff, #0096c7)",
+                textAlign: "center",
+                boxShadow: "0 0 14px rgba(0,212,255,0.3)",
+              }}
+            >
+              Sign In
+            </Link>
           </motion.nav>
         )}
       </AnimatePresence>
@@ -237,6 +286,7 @@ export default function Navbar() {
       <style>{`
         @media (max-width: 768px) {
           .nav-desktop   { display: none !important; }
+          .nav-desktop-signin { display: none !important; }
           .nav-hamburger { display: flex !important; }
         }
       `}</style>
